@@ -18,4 +18,4 @@ RUN npm run build
 # Fetch nginx image from docker hub
 FROM nginx
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=builder /app/dist /usr/share/nginx/html
