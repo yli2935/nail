@@ -35,8 +35,6 @@ jobs:
   linter:
     name: Lint Test  
     runs-on: ubuntu-latest
-    outputs:
-      linter-output: ${{ steps.set-linter-output.outputs.linter-output }}
     steps:
       - name: Checking out
         uses: actions/checkout@v4
@@ -62,8 +60,5 @@ jobs:
           path: |
             megalinter-reports
             mega-linter.log    
-      - name: Set Output
-        if: always()
-        id: set-linter-output
-        run: echo "linter-output=${{success()}}" >> $GITHUB_OUTPUT     
+   
         
