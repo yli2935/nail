@@ -9,6 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route exact path="/about" element={<Home />} />
         <Route exact path="/services" element={<Home />} />
         <Route exact path="/portfolio" element={<Home />} />
