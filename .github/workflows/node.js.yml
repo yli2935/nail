@@ -106,6 +106,6 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: 'yli2935/gitops01:${{ github.sha }}'
+          tags: 'yli2935/nail:${{ github.sha }}'
       - name: Image digest
         run: 'echo ${{ steps.docker_build.outputs.digest }}'  
