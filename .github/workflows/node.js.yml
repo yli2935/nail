@@ -61,4 +61,23 @@ jobs:
             megalinter-reports
             mega-linter.log    
    
-        
+  semgrep:
+    name: Semgrep Scan
+    runs-on: ubuntu-latest
+    container:
+      image: semgrep/semgrep
+    steps:
+      - name: Install node
+        run: apk add --no-cache nodejs
+      - name: Checking out
+        uses: actions/checkout@v4
+      - name: Semgrep Scan
+        run: semgrep scan --sarif > semgrep.sarif
+      - name: save logs
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: semgrep-report
+          path: semgrep.sarif
+          retention-days: 3
+  
